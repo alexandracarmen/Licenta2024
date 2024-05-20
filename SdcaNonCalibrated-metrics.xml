@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>SdcaNonCalibrated</Name>
+  <Accuracy>0.8681128815511614</Accuracy>
+  <AreaUnderRocCurve>0.9422491102694395</AreaUnderRocCurve>
+  <F1Score>0.847750609440792</F1Score>
+  <PositiveRecall>0.8331639320458836</PositiveRecall>
+  <PositivePrecision>0.8628571428571429</PositivePrecision>
+  <NegativeRecall>0.8956521739130435</NegativeRecall>
+  <NegativePrecision>0.8720062381641974</NegativePrecision>
+  <TruePositive>5738</TruePositive>
+  <FalsePositive>912</FalsePositive>
+  <FalseNegative>1149</FalseNegative>
+  <TrueNegative>7828</TrueNegative>
+</ClassifierMetrics>

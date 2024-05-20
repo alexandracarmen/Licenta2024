@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>LinearSvm</Name>
+  <Accuracy>0.8336212964740514</Accuracy>
+  <AreaUnderRocCurve>0.9151161492534438</AreaUnderRocCurve>
+  <F1Score>0.7856907352456313</F1Score>
+  <PositiveRecall>0.6920284594162915</PositiveRecall>
+  <PositivePrecision>0.9086749285033365</PositivePrecision>
+  <NegativeRecall>0.9451945080091533</NegativeRecall>
+  <NegativePrecision>0.7957041032556348</NegativePrecision>
+  <TruePositive>4766</TruePositive>
+  <FalsePositive>479</FalsePositive>
+  <FalseNegative>2121</FalseNegative>
+  <TrueNegative>8261</TrueNegative>
+</ClassifierMetrics>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>LightGbm</Name>
+  <Accuracy>0.8815511614513343</Accuracy>
+  <AreaUnderRocCurve>0.957048782586766</AreaUnderRocCurve>
+  <F1Score>0.8609629685270036</F1Score>
+  <PositiveRecall>0.8321475243211849</PositiveRecall>
+  <PositivePrecision>0.8918456271397448</PositivePrecision>
+  <NegativeRecall>0.9204805491990846</NegativeRecall>
+  <NegativePrecision>0.8743614824475601</NegativePrecision>
+  <TruePositive>5731</TruePositive>
+  <FalsePositive>695</FalsePositive>
+  <FalseNegative>1156</FalseNegative>
+  <TrueNegative>8045</TrueNegative>
+</ClassifierMetrics>

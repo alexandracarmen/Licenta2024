@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Sentinel",
+    "description": "ML-based news truth prediction extension",
+    "version": "1.0",
+    "permissions": ["contextMenus", "tabs"],
+    "background": {"service_worker": "sentinel.js"},
+    "icons": {
+        "32": "sentinel.png"
+    }
+}
+  

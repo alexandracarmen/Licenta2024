@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>FastForest</Name>
+  <Accuracy>0.7776284635566647</Accuracy>
+  <AreaUnderRocCurve>0.8614854072890954</AreaUnderRocCurve>
+  <F1Score>0.6952021752477854</F1Score>
+  <PositiveRecall>0.575431973282997</PositiveRecall>
+  <PositivePrecision>0.8779353123615419</PositivePrecision>
+  <NegativeRecall>0.9369565217391305</NegativeRecall>
+  <NegativePrecision>0.7368847295959687</NegativePrecision>
+  <TruePositive>3963</TruePositive>
+  <FalsePositive>551</FalsePositive>
+  <FalseNegative>2924</FalseNegative>
+  <TrueNegative>8189</TrueNegative>
+</ClassifierMetrics>

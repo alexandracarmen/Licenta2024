@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>LbfgsLogisticRegression</Name>
+  <Accuracy>0.8761118576822167</Accuracy>
+  <AreaUnderRocCurve>0.9485515276186122</AreaUnderRocCurve>
+  <F1Score>0.8557806912991657</F1Score>
+  <PositiveRecall>0.8340351386670539</PositiveRecall>
+  <PositivePrecision>0.8786905308245373</PositivePrecision>
+  <NegativeRecall>0.9092677345537757</NegativeRecall>
+  <NegativePrecision>0.8742574257425743</NegativePrecision>
+  <TruePositive>5744</TruePositive>
+  <FalsePositive>793</FalsePositive>
+  <FalseNegative>1143</FalseNegative>
+  <TrueNegative>7947</TrueNegative>
+</ClassifierMetrics>

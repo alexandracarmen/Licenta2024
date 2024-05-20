@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>FastTree</Name>
+  <Accuracy>0.8821910795418186</Accuracy>
+  <AreaUnderRocCurve>0.9547077470603422</AreaUnderRocCurve>
+  <F1Score>0.8614435162188605</F1Score>
+  <PositiveRecall>0.8309859154929577</PositiveRecall>
+  <PositivePrecision>0.89421875</PositivePrecision>
+  <NegativeRecall>0.9225400457665904</NegativeRecall>
+  <NegativePrecision>0.8738484881326541</NegativePrecision>
+  <TruePositive>5723</TruePositive>
+  <FalsePositive>677</FalsePositive>
+  <FalseNegative>1164</FalseNegative>
+  <TrueNegative>8063</TrueNegative>
+</ClassifierMetrics>

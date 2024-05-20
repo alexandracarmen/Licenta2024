@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>FieldAwareFactorizationMachine</Name>
+  <Accuracy>0.8957573430600884</Accuracy>
+  <AreaUnderRocCurve>0.9635050317000258</AreaUnderRocCurve>
+  <F1Score>0.8809123473938153</F1Score>
+  <PositiveRecall>0.8748366487585305</PositiveRecall>
+  <PositivePrecision>0.8870730270906949</PositivePrecision>
+  <NegativeRecall>0.9122425629290618</NegativeRecall>
+  <NegativePrecision>0.9024335031126203</NegativePrecision>
+  <TruePositive>6025</TruePositive>
+  <FalsePositive>767</FalsePositive>
+  <FalseNegative>862</FalseNegative>
+  <TrueNegative>7973</TrueNegative>
+</ClassifierMetrics>

@@ -1,0 +1,128 @@
+﻿@page "/news-prediction"
+@page "/news-prediction/{guid}"
+@using Sentinel.Frontend.Services
+@using Sentinel.ML.Models
+@inject INewsService NewsService
+@inject IExtensionService ExtensionService
+@rendermode InteractiveServer
+
+<style>
+    .form-select,
+    .form-control,
+    #predictionAccordion {
+        border-color: rgb(148, 0, 216);
+    }
+
+    #pgtitle {
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    #predict-btn {
+        background-color: rgb(148, 0, 216);
+        border-color: rgb(77, 0, 112);
+    }
+</style>
+
+<PageTitle>News prediction</PageTitle>
+
+<div class="mx-5">
+    <h1 id="pgtitle">News prediction</h1>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">
+            <h5>Upload and predict a text file:</h5>
+        </label>
+        <InputFile OnChange="GetFiles" class="form-control" id="formFile" />
+    </div>
+    <div class="mb-3">
+        <h5>Insert news text to predict</h5>
+        <InputTextArea class="form-control" style="height: 240px" @bind-Value="prompt" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary px-5" @onclick="Predict" id="predict-btn">Predict</button>
+    </div>
+
+    @if (predictionResults != null)
+    {
+        <div class="accordion my-3" id="predictionAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        Predicted text
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#predictionAccordion">
+                    <div class="accordion-body">
+                        @predictionResults.First().Item2.Text
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-sm table-striped">
+        <thead>
+            <tr>
+                <th><b>Classifier</b></th>
+                <th><b>Truth</b></th>
+                <th><b>Score</b></th>
+                <th><b>Probability</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var predictionResult in predictionResults)
+                {
+                    <tr>
+                        <td>@predictionResult.Item1</td>
+                        <td>@(predictionResult.Item2.Truth ? "✔️ True" : "❌ False")</td>
+                        <td>@string.Format($"{predictionResult.Item2.Score}")</td>
+                        <td>@string.Format($"{predictionResult.Item2.Probability:P2}")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+@code {
+    [Parameter]
+    public string? Guid { get; set; }
+    private string prompt = "";
+    private IEnumerable<(string, News)>? predictionResults;
+    private IEnumerable<string>? classifiers;
+    private string? selectedClassifier;
+
+    private void SelectClassifier(string classifier) => selectedClassifier = classifier;
+    protected override void OnInitialized()
+    {
+        classifiers = NewsService.Classifiers.Select(c => c.GetType().Name.Split("NewsBinaryClassifier")[0]);
+        selectedClassifier = classifiers.First();
+        if (Guid != null)
+        {
+            prompt = ExtensionService.Load(new Guid(Guid));
+            Predict();
+        }
+    }
+
+    private void Predict()
+    {
+        predictionResults = PredictAll();
+        StateHasChanged();
+    }
+
+    private IEnumerable<(string, News)> PredictAll()
+    {
+        List<(string, News)> news = new();
+        foreach (var classifier in NewsService.Classifiers)
+        {
+            news.Add((classifier.GetType().Name.Split("NewsBinaryClassifier")[0], classifier.Predict(prompt)));
+        }
+        return news;
+    }
+
+    private async void GetFiles(InputFileChangeEventArgs e)
+    {
+        prompt = await new StreamReader(e.File.OpenReadStream(maxAllowedSize:2147483648)).ReadToEndAsync();
+        Predict();
+    }
+}

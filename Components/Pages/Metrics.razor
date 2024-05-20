@@ -1,0 +1,59 @@
+﻿@page "/metrics"
+@using Microsoft.ML.Data
+@using Sentinel.Frontend.Services
+@using Sentinel.ML.Models;
+@inject INewsService NewsService;
+
+<PageTitle>Metrics</PageTitle>
+
+<h1>Metrics</h1>
+
+<table class="table table-bordered table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Classifier</th>
+            <th>Accuracy</th>
+            <th>Auc</th>
+            <th>F1Score</th>
+            <th>Precision</th>
+            <th>Recall</th>
+            <th>Confusion Matrix</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in NewsService.Classifiers.Select(c => c.Metrics))
+        {
+            <tr>
+                <td>@result.Name</td>
+                <td>@string.Format($"{result.Accuracy:P2}")</td>
+                <td>@string.Format($"{result.AreaUnderRocCurve:P2}")</td>
+                <td>@string.Format($"{result.F1Score:P2}")</td>
+                <td>@string.Format($"{result.PositivePrecision:P2}")</td>
+                <td>@string.Format($"{result.PositiveRecall:P2}")</td>
+                <td>
+                    <table class="table table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th class="table-secondary"></th>
+                            <th class="table-primary"><b>Predicted Positive</b></th>
+                            <th class="table-primary"><b>Predicted Negative</b></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-success"><b>Actual Positive</b></td>
+                            <td class="table-success">True Positive: <b>@result.TruePositive</b></td>
+                            <td class="table-primary">False Negative: <b>@result.FalseNegative</b></td>
+                        </tr>
+                        <tr>
+                            <td class="table-success"><b>Actual Negative</b></td>
+                            <td class="table-primary">False Positive: <b>@result.FalsePositive</b></td>
+                            <td class="table-success">True Negative: <b>@result.TrueNegative</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

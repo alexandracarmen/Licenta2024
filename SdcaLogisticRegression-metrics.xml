@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassifierMetrics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>SdcaLogisticRegression</Name>
+  <Accuracy>0.8681128815511614</Accuracy>
+  <AreaUnderRocCurve>0.9423251331813096</AreaUnderRocCurve>
+  <F1Score>0.8481991603447008</F1Score>
+  <PositiveRecall>0.8360679541164513</PositiveRecall>
+  <PositivePrecision>0.8606875934230195</PositivePrecision>
+  <NegativeRecall>0.8933638443935927</NegativeRecall>
+  <NegativePrecision>0.8736712543359069</NegativePrecision>
+  <TruePositive>5758</TruePositive>
+  <FalsePositive>932</FalsePositive>
+  <FalseNegative>1129</FalseNegative>
+  <TrueNegative>7808</TrueNegative>
+</ClassifierMetrics>
